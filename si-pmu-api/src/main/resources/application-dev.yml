@@ -1,0 +1,48 @@
+server:
+  servlet:
+    context-path: /si-pmu
+  port: 8099
+  error:
+    whitelabel:
+      enabled: false
+    include-message: always
+    include-binding-errors: always
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+    endpoint:
+      health:
+        show-details: always
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+spring:
+  application:
+    name: si-pmu-api
+  datasource:
+    url: jdbc:mysql://mysql-db-siPmu:3306/siPmuDb?allowPublicKeyRetrieval=true&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+  sql:
+    init:
+      mode: always
+
+  docker:
+    compose:
+      file: docker-compose.yml
+    readiness:
+      wait: false

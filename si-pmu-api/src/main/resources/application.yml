@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: si-pmu-api
+  profiles:
+    active: dev  # Change en 'prod' en production

@@ -1,0 +1,18 @@
+services:
+  network-deploy-service:
+    networks:
+      - mamadou4bah
+
+  mysql-db-config:
+    extends:
+      service: network-deploy-service
+    image: mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 10
+      interval: 10s
+      start_period: 10s
+    environment:
+      MYSQL_DATABASE: siPmuDb
+      MYSQL_ROOT_PASSWORD: root

@@ -11,6 +11,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +25,8 @@ import static org.springframework.http.HttpStatus.CREATED;
 @CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 public class CourseController {
 
+    private static final Logger logger = LoggerFactory.getLogger(CourseController.class);
+
     private final CourseService courseService;
     private final CourseMapper courseMapper;
 
@@ -32,7 +36,9 @@ public class CourseController {
             @ApiResponse(responseCode = "201", description = "The course has been added"),
     })
     public ResponseEntity<CourseOutput> addCourse(@RequestBody @Valid CourseAddInput courseAddInput) {
+        logger.debug("Adding a new course start");
         final Course course = courseService.addCourse(courseMapper.toAddCourse(courseAddInput));
+        logger.debug("Adding a new course end");
         return new ResponseEntity<>(courseMapper.toCourseOutPut(course), CREATED);
     }
 }

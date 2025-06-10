@@ -12,10 +12,28 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: health,info,prometheus
     endpoint:
       health:
         show-details: always
+      prometheus:
+        enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      application: ${spring.application.name}
+
+  logging:
+    level:
+      com:
+        mamadou:
+          bah:
+            si:
+              pmu: DEBUG
+    pattern: # for tracing logs using opentelemetry [tagID, traceID, spanID] (https://opentelemetry.io/docs/zero-code/java/agent/)
+      level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
 
 springdoc:
   api-docs:

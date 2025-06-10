@@ -52,5 +52,4 @@ public class CourseControllerTest {
                         .content(asJsonString(input)))
                 .andExpect(status().isCreated());
     }
-
 }

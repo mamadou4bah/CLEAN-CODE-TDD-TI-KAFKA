@@ -33,10 +33,6 @@ Il y'a des tests unitaires sur le service ajout course, du kafka, de tests d'int
 #Lien swagger
 http://localhost:8099/si-pmu/swagger-ui/index.html
 
-# NB
-Les informations sensibles comme par exemple username, password, etc... je voulais les mettre dans un fichier .env
-mais je n'ai pas eu le temps
-
 
 
 

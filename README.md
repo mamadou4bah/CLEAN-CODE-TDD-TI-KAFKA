@@ -12,8 +12,8 @@
 
 Dans le fichier main de l'application (SiPmuApiApplication.java) -> lancer l'application
 
-Toutes les images et containers docker (kafka, mysql, si-pmu-app) vont se lancer ainsi que l'application
-les tables de la base de données vont se créer.
+Toutes les images et containers docker (kafka, mysql, si-pmu-app) vont se lancer.
+Les tables de la base de données vont être créer aussi.
 
 # Base données:
 - Utiliser un outil comme Sqlectron pour créer la base de données 

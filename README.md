@@ -30,8 +30,6 @@ Il y'a des tests unitaires sur le service ajout course, du kafka, de tests d'int
 # Pour tester l'application il faut utiliser Postman
 - URL http://localhost:8099/si-pmu/api/v1/courses avec le payload biensûr
 
-Depuis que j'ai intégré Kafka, le swagger ne marche plus et je n'ai pas eu le temps de voir pourquoi.
-
 #Lien swagger
 http://localhost:8099/si-pmu/swagger-ui/index.html
 
